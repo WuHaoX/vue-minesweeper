@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@antfu/eslint-config': ^0.26.3
   '@iconify-json/carbon': ^1.1.7
+  '@iconify/vue': ^4.0.0
   '@types/node': ^18.7.15
   '@unocss/reset': ^0.45.15
   '@vitejs/plugin-vue': ^3.1.0
@@ -31,6 +32,7 @@ dependencies:
 devDependencies:
   '@antfu/eslint-config': 0.26.3_yqf6kl63nyoq5megxukfnom5rm
   '@iconify-json/carbon': 1.1.7
+  '@iconify/vue': 4.0.0_vue@3.2.38
   '@types/node': 18.7.15
   '@unocss/reset': 0.45.15
   '@vitejs/plugin-vue': 3.1.0_vite@3.1.0+vue@3.2.38
@@ -273,6 +275,10 @@ packages:
     resolution: {integrity: sha512-Jh0llaK2LRXQoYsorIH8maClebsnzTcve+7U3rQUSnC11X4jtPnFuyatqFLvMxZ8MLG8dB4zfHsbPfuvxluONw==}
     dev: true
 
+  /@iconify/types/2.0.0:
+    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
+    dev: true
+
   /@iconify/utils/1.0.33:
     resolution: {integrity: sha512-vGeAqo7aGPxOQmGdVoXFUOuyN+0V7Lcrx2EvaiRjxUD1x6Om0Tvq2bdm7E24l2Pz++4S0mWMCVFXe/17EtKImQ==}
     dependencies:
@@ -284,6 +290,15 @@ packages:
       local-pkg: 0.4.2
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@iconify/vue/4.0.0_vue@3.2.38:
+    resolution: {integrity: sha512-73z81Yf2HISfehu3qvN9GqL1OnUO7wEMKkiFwVGJ2pqAdGCR8FrVylhRhka+6U+gFLlng0ynnT20svk3jJYwow==}
+    peerDependencies:
+      vue: '>=3'
+    dependencies:
+      '@iconify/types': 2.0.0
+      vue: 3.2.38
     dev: true
 
   /@jridgewell/gen-mapping/0.1.1:
