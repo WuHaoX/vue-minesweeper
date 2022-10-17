@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { BlockState } from '~/types'
 import { Icon } from '@iconify/vue'
+import type { BlockState } from '~/types'
 import { isDev } from '~/composables/storage'
 
 defineProps<{ block: BlockState }>()
@@ -42,7 +42,7 @@ function getBlockClass(block: BlockState) {
       <div v-if="block.mine">
         <Icon icon="mdi:mine" />
       </div>
-      <div v-else>
+      <div v-else font-bold>
         {{ block.adjaccentttMines }}
       </div>
     </template>

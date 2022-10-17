@@ -6,10 +6,16 @@ function toggleDev() {
   isDev.value = !isDev.value
 }
 
-const play = new GamePlay(12,12)
-//vue-use函数
-useStorage('vueSweeper-state',play.state)
+const play = new GamePlay(12, 12, 30)
+// vue-use函数
+useStorage('vueSweeper-state', play.state)
 const state = computed(() => play.board)
+const mineCoun = computed(() => {
+  return play.blocks.reduce((a, b) => a + (b.mine ? 1 : 0), 0)
+})
+watchEffect(() => {
+  play.checkGameState()
+})
 </script>
 
 <template>
@@ -34,9 +40,14 @@ const state = computed(() => play.board)
         />
       </div>
     </div>
+
+    <div>
+      count: {{ mineCoun }}
+    </div>
+
     <div flex="~ gap-1" justify-center>
       <button btn @click="toggleDev()">
-        {{isDev ? 'DEV' : 'NORMAL'}}
+        {{ isDev ? 'DEV' : 'NORMAL' }}
       </button>
       <button btn @click="play.reset()">
         RESET
