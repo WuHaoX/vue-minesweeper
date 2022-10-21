@@ -8,7 +8,7 @@ function toggleDev() {
 
 const play = new GamePlay(12, 12, 30)
 const now = $(useNow())
-const timerMS = $computed(() => Math.round((+now - play.state.value.startMs) / 1000))
+const timerMS = $computed(() => Math.round(((play.state.value.endMs || +now) - play.state.value.startMs) / 1000))
 // vue-use函数
 useStorage('vueSweeper-state', play.state)
 const state = computed(() => play.board)
@@ -80,6 +80,7 @@ watchEffect(() => {
             :key="x"
             :block="block"
             @click="play.onClick(block)"
+            @dblclick="play.autoExpand(block)"
             @contextmenu.prevent="play.onRightClick(block)"
           />
         </div>
@@ -90,7 +91,7 @@ watchEffect(() => {
           {{ isDev ? 'DEV' : 'NORMAL' }}
         </button>
       </div>
-      <Confetti :passed="play.state.value.gameState === 'won'" />
+      <Confetti :passed="play.state.value.status === 'won'" />
     </div>
   </div>
 </template>
