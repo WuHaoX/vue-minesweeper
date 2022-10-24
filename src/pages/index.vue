@@ -92,6 +92,7 @@ watchEffect(() => {
         </button>
       </div>
       <Confetti :passed="play.state.value.status === 'won'" />
+      <ConfettiLost :passed="play.state.value.status === 'lost'" />
     </div>
   </div>
 </template>
